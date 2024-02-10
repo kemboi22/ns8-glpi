@@ -23,7 +23,7 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/mariadb-app.pid \
     --env MARIADB_ROOT_PASSWORD=Nethesis,1234 \
     --env MARIADB_DATABASE=glpi \
     --env MARIADB_USER=glpi \
-    --env MARIADB_PASSWORD=glpi \
+    --env MARIADB_PASSWORD=Glpi,1234 \
     --env MARIADB_AUTO_UPGRADE=1 \
     ${MARIADB_IMAGE} \
     --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
