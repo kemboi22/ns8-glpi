@@ -21,8 +21,6 @@ ExecStartPre=-runagent discover-smarthost
 ExecStart=/usr/bin/podman run --conmon-pidfile %t/glpi-app.pid \
     --cidfile %t/glpi-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/glpi.pod-id --replace -d --name  glpi-app \
-    --volume timezone:/etc/timezone:ro \
-    --volume localtime:/etc/localtime:ro \
     --volume html:/var/www/html/glpi \
     --env=MARIADB_* \
     --env MARIADB_DB_TYPE=mysql \
@@ -31,7 +29,6 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/glpi-app.pid \
     --env MARIADB_DB_USER=glpi \
     --env MARIADB_DB_PASSWORD=Glpi,1234 \
     --env MARIADB_DB_NAME=glpi \
-    --env TIMEZONE=Africa/Nairobi \
     ${GLPI_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/glpi-app.ctr-id -t 10
 ExecReload=/usr/bin/podman kill -s HUP glpi-app
