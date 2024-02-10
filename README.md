@@ -1,4 +1,4 @@
-# ns8-kickstart
+# ns8-glpi
 
 This is a template module for [NethServer 8](https://github.com/NethServer/ns8-core).
 To start a new module from it:
@@ -32,16 +32,16 @@ To start a new module from it:
 
 Instantiate the module with:
 
-    add-module ghcr.io/nethserver/kickstart:latest 1
+    add-module ghcr.io/kemboi22/glpi:latest 1
 
 The output of the command will return the instance name.
 Output example:
 
-    {"module_id": "kickstart1", "image_name": "kickstart", "image_url": "ghcr.io/nethserver/kickstart:latest"}
+    {"module_id": "glpi1", "image_name": "glpi", "image_url": "ghcr.io/kemboi22/glpi:latest"}
 
 ## Configure
 
-Let's assume that the mattermost instance is named `kickstart1`.
+Let's assume that the mattermost instance is named `glpi1`.
 
 Launch `configure-module`, by setting the following parameters:
 - `host`: a fully qualified domain name for the application
@@ -52,7 +52,7 @@ Launch `configure-module`, by setting the following parameters:
 Example:
 
 ```
-api-cli run configure-module --agent module/kickstart1 --data - <<EOF
+api-cli run configure-module --agent module/glpi1 --data - <<EOF
 {
   "host": "kickstart.domain.com",
   "http2https": true,
@@ -69,14 +69,21 @@ The above command will:
 You can retrieve the configuration with
 
 ```
-api-cli run get-configuration --agent module/kickstart1
+api-cli run get-configuration --agent module/glpi1
+```
+
+## Update Module
+You can forcefully update with 
+
+```shell
+api-cli run update-module --data '{"module_url":"ghcr.io/kemboi22/glpi:latest","instances":["glpi1"],"force":true}'
 ```
 
 ## Uninstall
 
 To uninstall the instance:
 
-    remove-module --no-preserve kickstart1
+    remove-module --no-preserve glpi1
 
 ## Smarthost setting discovery
 
@@ -101,23 +108,23 @@ expected to work: it can be rewritten or discarded completely.
 
 some CLI are needed to debug
 
-- The module runs under an agent that initiate a lot of environment variables (in /home/kickstart1/.config/state), it could be nice to verify them
+- The module runs under an agent that initiate a lot of environment variables (in /home/glpi1/.config/state), it could be nice to verify them
 on the root terminal
 
-    `runagent -m kickstart1 env`
+    `runagent -m glpi1 env`
 
 - you can become runagent for testing scripts and initiate all environment variables
   
-    `runagent -m kickstart1`
+    `runagent -m glpi1`
 
  the path become : 
 ```
     echo $PATH
-    /home/kickstart1/.config/bin:/usr/local/agent/pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/
+    /home/glpi1/.config/bin:/usr/local/agent/pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/
 ```
 
 - if you want to debug a container or see environment inside
- `runagent -m kickstart1`
+ `runagent -m glpi1`
  ```
 podman ps
 CONTAINER ID  IMAGE                                      COMMAND               CREATED        STATUS        PORTS                    NAMES
