@@ -1,19 +1,23 @@
 {
-  "name": "kickstart",
+  "name": "GLPI",
   "description": {
-    "en": "My kickstart module"
+    "en": "GLPI is an incredible Service Management software based on open source technologies. It helps you plan and manage IT changes in an easy way, solve problems efficiently, automate your business processes and gain control over your IT infrastructure."
   },
   "categories": [],
   "authors": [
     {
-      "name": "Name Surname",
-      "email": "author@yourmail.org"
+      "name": "Kemboi Elvis",
+      "email": "kemboielvis@genius.ke"
+    },
+    {
+      "name": "Martin Bhuong",
+      "email": "martin@genius.ke"
     }
   ],
   "docs": {
-    "documentation_url": "https://docs.kickstart.com/",
-    "bug_url": "https://github.com/NethServer/dev",
-    "code_url": "https://github.com/author/ns8-kickstart"
+    "documentation_url": "https://glpi-project.org/documentation/",
+    "bug_url": "https://github.com/kemboi22/ns8-glpi",
+    "code_url": "https://github.com/kemboi22/ns8-glpi"
   },
-  "source": "ghcr.io/nethserver/kickstart"
+  "source": "ghcr.io/kemboi22/glpi"
 }
