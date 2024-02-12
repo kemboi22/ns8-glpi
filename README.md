@@ -32,12 +32,12 @@ To start a new module from it:
 
 Instantiate the module with:
 
-    add-module ghcr.io/kemboi22/glpi:latest 1
+    add-module ghcr.io/geniusdynamics/glpi:latest 1
 
 The output of the command will return the instance name.
 Output example:
 
-    {"module_id": "glpi1", "image_name": "glpi", "image_url": "ghcr.io/kemboi22/glpi:latest"}
+    {"module_id": "glpi1", "image_name": "glpi", "image_url": "ghcr.io/geniusdynamics/glpi:latest"}
 
 ## Configure
 
@@ -76,7 +76,7 @@ api-cli run get-configuration --agent module/glpi1
 You can forcefully update with 
 
 ```shell
-api-cli run update-module --data '{"module_url":"ghcr.io/kemboi22/glpi:latest","instances":["glpi1"],"force":true}'
+api-cli run update-module --data '{"module_url":"ghcr.io/geniusdynamics/glpi:latest","instances":["glpi1"],"force":true}'
 ```
 
 ## Uninstall
