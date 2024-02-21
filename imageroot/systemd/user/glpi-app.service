@@ -22,7 +22,7 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/glpi-app.pid \
     --cidfile %t/glpi-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/glpi.pod-id --replace -d --name  glpi-app \
     --volume html:/var/www/html/glpi \
-    --env=MARIADB_* \
+    --env=GLPI_* \
     --env MARIADB_DB_TYPE=mysql \
     --env MARIADB_DB_HOST=127.0.0.1 \
     --env MARIADB_DB_PORT=3306 \
