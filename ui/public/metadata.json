@@ -16,8 +16,8 @@
   ],
   "docs": {
     "documentation_url": "https://glpi-project.org/documentation/",
-    "bug_url": "https://github.com/kemboi22/ns8-glpi",
-    "code_url": "https://github.com/kemboi22/ns8-glpi"
+    "bug_url": "https://github.com/geniusdynamics/ns8-glpi",
+    "code_url": "https://github.com/geniusdynamics/ns8-glpi"
   },
-  "source": "ghcr.io/kemboi22/glpi"
+  "source": "ghcr.io/geniusdynamics/glpi"
 }
