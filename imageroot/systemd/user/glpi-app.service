@@ -25,7 +25,6 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/glpi-app.pid \
     --volume glpi_timezone:/etc/timezone:ro \
     --volume glpi_html:/var/www/html/glpi \
     --env=GLPI_* \
-    --env VERSION_GLPI=10.0.12 \
     --env MARIADB_DB_TYPE=mysql \
     --env MARIADB_DB_HOST=127.0.0.1 \
     --env MARIADB_DB_PORT=3306 \
