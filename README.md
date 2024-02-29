@@ -23,8 +23,10 @@ Launch `configure-module`, by setting the following parameters:
 - `host`: a fully qualified domain name for the application
 - `http2https`: enable or disable HTTP to HTTPS redirection (true/false)
 - `lets_encrypt`: enable or disable Let's Encrypt certificate (true/false)
-
-
+- `MARIADB_DB_HOST`: 127.0.0.1
+- `MARIADB_DB_USER`: glpi
+- `MARIADB_DB_PASSWORD`: Glpi,1234
+- `MARIADB_DB_NAME=`: glpi
 Example:
 
 ```
@@ -40,6 +42,12 @@ EOF
 The above command will:
 - start and configure the kickstart instance
 - configure a virtual host for trafik to access the instance
+
+Defaults
+## Initial Setup Configs
+  "MySQL host": 127.0.0.1
+  "MySQL USer": glpi
+  "MySQL PAssword": Glpi,1234
 
 ## Get the configuration
 You can retrieve the configuration with
