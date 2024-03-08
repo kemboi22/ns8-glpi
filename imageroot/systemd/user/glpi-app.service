@@ -22,6 +22,7 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/glpi-app.pid \
     --cidfile %t/glpi-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/glpi.pod-id --replace -d --name  glpi-app \
     --volume glpi_html:/var/www/html/glpi \
+    --volume glpi-volume-plugins:/var/www/html/plugins \
     --env=GLPI_* \
     --env VERSION_GLPI=10.0.12 \
     --env TIMEZONE=Europe/Brussels \
@@ -31,6 +32,7 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/glpi-app.pid \
     --env MARIADB_DB_USER=glpi \
     --env MARIADB_DB_PASSWORD=Glpi,1234 \
     --env MARIADB_DB_NAME=glpi \
+    --env PLUGINS=all \
     ${GLPI_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/glpi-app.ctr-id -t 10
 ExecReload=/usr/bin/podman kill -s HUP glpi-app
