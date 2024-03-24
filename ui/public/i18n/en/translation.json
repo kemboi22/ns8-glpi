@@ -31,6 +31,7 @@
     "disabled": "Disabled",
     "advanced": "Advanced",
     "configuring": "Configuring",
+    "instance_configuration": "Configure glpi Please wait as glpi services are started",
     "instance_configuration": "Configure glpi",
     "domain_already_used_in_traefik": "Domain already used in traefik",
     "host_pattern": "Must be a valid fully qualified domain name",
