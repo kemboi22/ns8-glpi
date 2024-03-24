@@ -18,7 +18,7 @@ TimeoutStopSec=70
 ExecStartPre=/bin/mkdir -p config
 ExecStartPre=/bin/rm -f %t/glpi-app.pid %t/glpi-app.ctr-id
 ExecStartPre=-runagent discover-smarthost
-ExecStartPost=/usr/bin/bash -c "while ! /usr/bin/podman exec glpi-app /usr/bin/curl  http://127.0.0.1:80/glpi/front ; do sleep 3 ; done"
+ExecStartPost=/usr/bin/bash -c "while ! podman exec -ti mariadb-app mysql -u glpi -pGlpi,1234 -D glpi -e 'SELECT * FROM glpi_users' > /dev/null ; do sleep 3 ; done"
 ExecStart=/usr/bin/podman run --conmon-pidfile %t/glpi-app.pid \
     --cidfile %t/glpi-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/glpi.pod-id --replace -d --name  glpi-app \
