@@ -14,7 +14,7 @@ images=()
 repobase="${REPOBASE:-ghcr.io/geniusdynamics}"
 # Configure the image name
 reponame="glpi"
-app_version="10.0.14"
+app_version="10.0.15"
 # Create a new empty container image
 container=$(buildah from scratch)
 
