@@ -21,7 +21,7 @@ ExecStartPre=-runagent discover-smarthost
 ExecStart=/usr/bin/podman run --conmon-pidfile %t/glpi-app.pid \
     --cidfile %t/glpi-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/glpi.pod-id --replace -d --name  glpi-app \
-    --volume glpi_html:/var/www/html/glpi \
+    --volume glpi_html:/var/www/html/glpi/:z \
     --env-file=%S/state/glpi-db.env \
     ${GLPI_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/glpi-app.ctr-id -t 10
