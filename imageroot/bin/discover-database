@@ -22,5 +22,5 @@ if not os.path.exists(database):
         'MARIADB_PASSWORD': 'Glpi,1234',
         'MARIADB_AUTO_UPGRADE': '1'
     }
-    agent.write_env_file("database.env", mariadb_config)
+    agent.write_envfile("database.env", mariadb_config)
 
