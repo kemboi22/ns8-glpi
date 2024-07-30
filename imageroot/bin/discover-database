@@ -8,10 +8,7 @@
 import sys
 import agent
 import os
-import json
 
-# Read the current configuration:
-request = json.load(sys.stdin)
 
 
 database = "database.env"
