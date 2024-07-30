@@ -13,6 +13,7 @@ import os
 
 database = "database.env"
 # check if it exists
+# set the default values
 
 if not os.path.exists(database):
     mariadb_config = {
@@ -22,5 +23,16 @@ if not os.path.exists(database):
         'MARIADB_PASSWORD': 'Glpi,1234',
         'MARIADB_AUTO_UPGRADE': '1'
     }
+    glpi_db = {
+        "VERSION_GLPI": "10.0.12",
+        "TIMEZONE": "Europe/Brussels",
+        "MARIADB_DB_TYPE": "mysql",
+        "MARIADB_DB_HOST": "mariadb-app",
+        "MARIADB_DB_PORT": "3306",
+        "MARIADB_DB_USER": 'glpi',
+        "MARIADB_DB_PASSWORD": 'Glpi,1234',
+        "MARIADB_DB_NAME": 'glpi'
+    }
+    agent.write_envfile("glpi-db.env", glpi_db)
     agent.write_envfile("database.env", mariadb_config)
 
