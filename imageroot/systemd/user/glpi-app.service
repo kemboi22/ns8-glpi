@@ -18,19 +18,11 @@ TimeoutStopSec=70
 ExecStartPre=/bin/mkdir -p config
 ExecStartPre=/bin/rm -f %t/glpi-app.pid %t/glpi-app.ctr-id
 ExecStartPre=-runagent discover-smarthost
-ExecStartPost=/usr/bin/bash -c "while ! podman exec -ti mariadb-app mysql -u glpi -pGlpi,1234 -D glpi -e 'SELECT * FROM glpi_users' > /dev/null ; do sleep 3 ; done"
 ExecStart=/usr/bin/podman run --conmon-pidfile %t/glpi-app.pid \
     --cidfile %t/glpi-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/glpi.pod-id --replace -d --name  glpi-app \
-    --volume glpi_html:/var/www/html/glpi:z \
-    --env=GLPI_* \
-    --env TIMEZONE=Europe/Brussels \
-    --env MARIADB_DB_TYPE=mysql \
-    --env MARIADB_DB_HOST=127.0.0.1 \
-    --env MARIADB_DB_PORT=3306 \
-    --env MARIADB_DB_USER=glpi \
-    --env MARIADB_DB_PASSWORD=Glpi,1234 \
-    --env MARIADB_DB_NAME=glpi \
+    --volume glpi_html:/var/www/html/glpi/:z \
+    --env-file=%S/state/glpi-db.env \
     ${GLPI_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/glpi-app.ctr-id -t 10
 ExecReload=/usr/bin/podman kill -s HUP glpi-app
