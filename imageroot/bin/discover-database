@@ -12,9 +12,9 @@ import json
 
 # Read the current configuration:
 request = json.load(sys.stdin)
-print(request)
 
-database = request['database.env']
+
+database = "database.env"
 # check if it exists
 
 if not os.path.exists(database):
