@@ -12,6 +12,7 @@ After=glpi.service
 Environment=PODMAN_SYSTEMD_UNIT=%n
 EnvironmentFile=%S/state/environment
 EnvironmentFile=%S/state/environment
+ExecStartPre=-runagent discover-database
 # EnvironmentFile=%S/state/secrets/passwords.secret
 Restart=always
 TimeoutStopSec=70
