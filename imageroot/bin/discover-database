@@ -24,7 +24,6 @@ if not os.path.exists(database):
         'MARIADB_AUTO_UPGRADE': '1'
     }
     glpi_db = {
-        "VERSION_GLPI": "10.0.12",
         "TIMEZONE": "Europe/Brussels",
         "MARIADB_DB_TYPE": "mysql",
         "MARIADB_DB_HOST": "mariadb-app",
